@@ -31,4 +31,4 @@ jobs:
       - uses: xu-cheng/texlive-action/full@v1
         with:
           run: |
-            latexmk -gg -pdflatex="pdflatex -interaction=nonstopmode" thesis.tex
+            latexmk -gg -bibtex -pdf -pdflatex="pdflatex -interaction=nonstopmode" thesis.tex

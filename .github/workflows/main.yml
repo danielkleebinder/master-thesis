@@ -22,7 +22,7 @@ jobs:
       - uses: xu-cheng/texlive-action/full@v1
         with:
           run: |
-            chktex -q -eall -n 8 -n 22 -n 24 -n 30 -n 44 -n 46 thesis.tex
+            chktex -q -eall -n 8 -n 22 -n 24 -n 30 -n 35 -n 36 -n 44 -n 46 thesis.tex
 
   build:
     runs-on: ubuntu-latest
@@ -31,4 +31,4 @@ jobs:
       - uses: xu-cheng/texlive-action/full@v1
         with:
           run: |
-            latexmk -bibtex -pdf -pdflatex="pdflatex -interaction=nonstopmode" thesis.tex
+            latexmk -gg thesis.tex

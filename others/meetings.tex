@@ -1,0 +1,459 @@
+\section{2021.07.30}
+
+Read and research on:
+\begin{itemize}
+\item Consensus
+  \begin{itemize}
+  \item From Byzantine Consensus to BFT State Machine Replication~\cite{sousa12from_byzan_consen_bft_state_machin_replic}
+  \item State Machine Replication for the Masses with BFT-SMART~\cite{bessani14state_machin_replic_masses_bft_smart}
+  \item Designing Data intensive applications~\cite{kleppmann17desig} (p. 364 to p. 375)
+\end{itemize}
+\item On-Off chain
+  \begin{itemize}
+  \item Off-Chain Models~\cite{eberhardt18off_model_approac_off_comput}
+  \item On- or Off-chain~\cite{eberhardt17off_block}
+  \end{itemize}
+\item baseline
+  \begin{itemize}
+  \item \url{https://docs.baseline-protocol.org/}
+  \item \url{https://github.com/eea-oasis/baseline/tree/master/core}
+\end{itemize}
+\end{itemize}
+Practical:
+\begin{itemize}
+\item test baseline reference implementation
+  \begin{itemize}
+  \item \url{https://docs.baseline-protocol.org/bri/bri-1}
+  \item \url{https://docs.baseline-protocol.org/bri/bri-2}
+  \end{itemize}
+\end{itemize}
+
+\section{2021.08.06}
+Short update, same to-does as last week.
+These additional consensus paper could be relevant or interesting:
+\begin{itemize}
+\item Hotstuff (libra consenus bft) \url{https://arxiv.org/abs/1803.05069}
+\item Bitcoin selfish mining paper \url{https://dl.acm.org/doi/pdf/10.1145/3212998}
+\item Avalanche consensus \url{https://arxiv.org/abs/1906.08936}
+\item Tendermint consensus \url{https://arxiv.org/abs/1807.04938}
+\item Algorand consensus \url{https://www.sciencedirect.com/science/article/pii/S030439751930091X}
+\end{itemize}
+
+\section{2021.08.13}
+Paper consensus algorithms comparison: \url{https://ieeexplore.ieee.org/abstract/document/8672572}
+
+\begin{itemize}
+\item Consensus properties (wikipedia/kleppman/\ldots)
+\item State machine replication
+\item Finality
+\item Blockchain specifics
+  \begin{itemize}
+  \item Public /private
+  \item permissioned / permissionless
+  \end{itemize}
+\end{itemize}
+
+\section{2021.08.20}
+To-Does from last week.
+
+\section{2021.08.27}
+Most things from the last few meetings are done. Open To-Does:
+\begin{itemize}
+\item Rework text as we talked (references, paragraphs, etc.)
+\item Extend Onchain and offchain section by methods
+\item Look at papers on Blockchain application development by Florian
+  Blum. \url{https://florianblum.com/research} Write about your
+  findings.
+\item Look into Baseline and try out the reference implementations.
+\end{itemize}
+
+\section{2021.09.10}
+Open To-Does and references:
+\begin{itemize}
+\item Write section based on papers from Florian Blüm.
+\item minted package for code highlighting (\url{https://ctan.org/pkg/minted?lang=de})
+\item Kleppman talk on Kafka/DBs (\url{https://www.youtube.com/watch?v=fU9hR3kiOK0})
+\item Baseline conference EthAtlanta (\url{https://ethatl.com/})
+\item Provide (\url{https://provide.services/}) and stack docs (\url{https://docs.provide.services/api/})
+\end{itemize}
+
+\section{2021.09.17}
+Transactional Patterns und Hybrid Apps fertig schreiben
+
+Baseline und Provide Stack:
+\begin{itemize}
+\item In Baseline und Provide einlesen und einarbeiten
+\item Baseline-Protokoll Slack-Channel beitreten
+\item (Später eventuell auch 2 oder 3 Seiten zum Baseline Protokoll schreiben)
+\end{itemize}
+
+Referenzen nochmal durchschauen:
+\begin{itemize}
+\item Die Einträge von BibTex nochmal ansehen. Nicht alle Einträge (z.B. ``journal'' bei ``@misc'') werden gerendert.
+\item Bei Links und Online-Resourcen (wie ``@misc'') wie Ethereum Whitepaper ``publisher'' statt ``journal'' verwenden
+\item Bei ``@inproceedings'' sind ``pages'' und ``publisher'' wichtig
+\item ``journal'' oder ``booktitle'' hinzufügen
+\item Bei ``@inbook'' werden Kapitel von Büchern referenziert
+\end{itemize}
+
+Expose bzw. Proposal vorbereiten und Gedanken zum konkreten Thema der Arbeit machen:
+\begin{itemize}
+\item Wie bringt man die Blockchain zum User ohne Blockchain?
+\item Blockchain-oriented Processmanagement (UI zum Benutzer hin)
+\item Mitte Oktober mit etwas Projekterfahrung weiter besprechen
+\end{itemize}
+
+
+Überlegen ob mit VM, Laptop oder lokalem PC und remote arbeiten
+Erster Arbeitstag am 04.10.
+
+(Apache Kafka und Samza eventuell Stichwort-mäßig ein bisschen beschreiben)
+
+\section{2021.12.13}
+\label{sec:2021.12.13}
+
+Topics:
+\begin{itemize}
+\item Systematic literature review on BPMN and Blockchain (send paper)
+\item Caterpillar (send paper!)
+
+\end{itemize}
+
+Research Questions (draft):
+\begin{itemize}
+\item Entwurf eines Konzepts wie eine Historical State Machine als Businessprozess konfiguriert werden kann.
+\item Entwurf eines Konzepts zur historischen Datenspeicherung von großen Datensets.
+\item Entwurf eines Konzepts wie große Datensets vor Veränderung (Tamperproofness) geschützt werden können.
+\end{itemize}
+
+topic brainstorming:
+\begin{itemize}
+\item (general vs. in baseline context)?
+\item cross-organisational bpm
+\item workflow engine
+\item historical; logs; transcripts
+\item blockchain/smart contract/distributed ledger technologies/web3
+\item baseline
+\item associated data
+\end{itemize}
+
+\emph{Translation:}
+How can a concept for a historical state machine for distributed business process management be implemented.
+
+Possible questions for the concept/approach/method:
+\begin{itemize}
+\item What are the requirements?
+\item What data has to be saved/changed?
+\item How can changes be logged?
+\item What data has to be linked?
+\item What about event sourcing?
+\end{itemize}
+
+Method/approach for a efficient baseline compliant state machine that
+fulfills the requirements and constraints.
+
+\emph{Evaluation:} Prototype implementation for elevator use case
+
+\textbf{Draft research questions:}
+\begin{enumerate}
+\item What is the state of the art in distributed state machines for business process management workflow engines?
+\item Which approach or aspects are the most suitable/are required for baseline and what is missing?
+  \begin{enumerate}
+  \item How can the approaches/aspects be adapted to close the gap?
+  \end{enumerate}
+\end{enumerate}
+
+
+To-Does:
+\begin{itemize}
+\item Search methodology for literature review
+\item Search methodology for design science part (Hevner)
+\item Outline for proposal
+\end{itemize}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "thesis"
+%%% End:
+
+\section{2022.05.16}
+What happened since the last meeting?
+\begin{itemize}
+    \item Worked myself through A LOT of literature
+    \item Defined literature review methodology
+    \item Defined basic outline for time-travelling state machines
+\end{itemize}
+
+Questions:
+\begin{itemize}
+    \item Should I put my methodology into its own chapter or should I move it to the chapter where it was used?
+    \begin{itemize}
+        \item Either own chapter or as subsection in chapter.
+    \end{itemize}
+    \item \textit{Same question as above for the research questions.}
+    \item Number of references per number of words (like 8 to 12 for 1000 words?!?!)
+    \begin{itemize}
+        \item Should be somewhere between 50 and 100 references
+    \end{itemize}
+    \item How do I justify that I "chose the papers that I think are applicable for my thesis"?
+    \begin{itemize}
+        \item Do not necessarily describe this. Take too much time and already goes into the field of SLR. Maybe keep a list of literature with reasons why I didnt choose a certain paper just in case someone criticizes the work later one.
+    \end{itemize}
+    \item More ideas for concept comparison?
+    \begin{itemize}
+        \item On- vs. off-chain. What data is on- and what is off-chain?
+        \item Describe fields of concept comparison.
+    \end{itemize}
+    \item What time should I use?
+    \begin{itemize}
+        \item No future!
+        \item Related work mainly with past and present tense, rest with present tense.
+    \end{itemize}
+    \item Where to put source code and listings? Maybe into the evaluation?
+    \begin{itemize}
+        \item Longer source codes in Appendix, else try to shorten code and put it where it fits best.
+    \end{itemize}
+\end{itemize}
+
+To-Does:
+\begin{itemize}
+    \item Further describe methodology, how many search results, filtered by headlines and abstract.
+    \item More keywords:
+    \begin{itemize}
+        \item CAP-Theorem for consistency (e.g. \url{https://jepsen.io/consistency})
+        \item Consistency as open (distributed systems) question
+        \item Design science in approach
+        \item BP book from Mathias Weske \url{https://link.springer.com/book/10.1007/978-3-642-28616-2} for BP background section
+    \end{itemize}
+    \item Describe the scope of the work and where the cuts are.
+    \item Think about concept for rule engine integration
+    \item Add pro and cons for artifact- vs. BP-centric approach
+    \item Script tasks in \url{https://link.springer.com/chapter/10.1007/978-3-030-26619-6_7}. Also extends choreography diagrams with very interesting examples on GitHub
+    \item Take a look at ZK-Circuits in Baseline Protocol standard and check how they store state
+    \item Architecture and sequence diagram of state machine with modules
+    \item \textbf{Does BPMN 2.0 and \url{https://link.springer.com/chapter/10.1007/978-3-030-26619-6_7} comply with Baseline Protocol and what aspects do we need to adept}
+\end{itemize}
+
+
+\section{2022.05.30}
+What happened since the last meeting?
+\begin{itemize}
+    \item
+\end{itemize}
+
+Questions:
+\begin{itemize}
+    \item
+\end{itemize}
+
+To-Does:
+\begin{itemize}
+    \item Feel \url{https://camunda.github.io/feel-scala/docs/reference/}
+    \item TrustMesh \url{https://docs.baseledger.net/baseledger-concepts/trustmesh}
+\end{itemize}
+
+
+\section{2022.07.25}
+What happened since the last meeting?
+\begin{itemize}
+    \item Written introduction to ``Business Process Managament''
+    \item Defined facility management use case in more detail
+    \item Written ``Business Process Model and Notation'' subsection
+    \item Written ``Orchestration and Choreography'' subsection
+    \item Written ``Baseline Protocol'' section
+    \item Added journals to related work methodology description
+    \item Written ``Modeling and Enforcing Blockchain-Based Choreographies'' subsection in related work chapter
+    \item Written ``Concept Comparison'' section
+    \item Answered RQ1
+\end{itemize}
+
+Questions:
+\begin{itemize}
+    \item Do the \gls{bpmn} diagrams make sense in subsection ``Business Process Model and Notation''?
+    \item Is the choreography diagram in subsection ``Orchestration and Choreography'' syntactically correct?
+    \item Best approach to design science?
+    \item Noticed any spelling or grammatical mistakes?
+    \item What do you think of the Baseline Protocol section \ref{sec:background:baseline_protocol}? Is it sufficient? Should I go into more detail?
+    \item How do I ignore Latex warnings only in certain occasions? (for citations for example)
+\end{itemize}
+
+To-Does:
+\begin{itemize}
+    \item[\checkmark] Loop in figure \ref{fig:background:maintenance_full} between report further defects and inspect maintenance
+    \item[\checkmark] Check if letter symbol is required in BPMN
+    \item[\checkmark] Simplify BPI in figure \ref{fig:background:maintenance_report_baseline} even more.
+    \item[\checkmark] Baseline Protocol is still in heavy development and work in progress
+    \item[\checkmark] ZKP are out of scope, make part of background of Baseline Protocol
+    \item[\checkmark] On page 20, choreography tasks interact with two \textbf{or more} parties
+    \item[\checkmark] ''The box itself contains the message exchanged`` should be replaced with ``the inside of the box describes...'' (Martin takes a closer look at this)
+    \item[\checkmark] Look at proposal for introduction of Baseline Protocol (page 21).
+    \item[\checkmark] Rethink introduction to Baseline Protocol using docs and FAQ. Baseline Protocol reduces flexibility but increases synchronization resiliency with blockchain (maybe use quotes).
+    \item[\checkmark] Add architecture diagram (system of record communicates with BPI and nats and nats and BPI to system of record)
+    \item[\checkmark] Remove ``Baseline Protocol'' from RQs
+    \item[\checkmark] Use grammarly (see meeting on 2022.09.02)
+    \item[\checkmark] Argument logically why some design decision was applied
+    \item[\checkmark] Read Hevner and watch video from Martin
+    \item[\checkmark] Why did I use Design Science?
+\end{itemize}
+
+
+\section{2022.09.02}
+What happened since the last meeting?
+\begin{itemize}
+    \item Overhauled baseline protocol background section \ref{sec:background:baseline_protocol}
+    \item Written about design science methodology and tailoring in section \ref{sec:ttsm:methodology}
+    \item Written about the proposal in section \ref{sec:ttsm:proposal}
+    \item Written introduction to prototype design section \ref{sec:ttsm:prototype}
+    \item Defined outline of workflow layer subsection \ref{sec:ttsm:prototype:workflow_layer}
+\end{itemize}
+
+Questions:
+\begin{itemize}
+    \item Is it clear from the design science methodology section why I used design science in the first place?
+    \item Can I use literature written in german language (Entwurfsmuster by Matthias Geirhos)?
+    \item Is the proposal written precise enough?
+    \item I did not describe each layer separately in section \ref{sec:ttsm:proposal}, but tried to tell the story of a single state transitions from being dispatched by one participant until it reaches consensus. Is this the best approach (Stichwort ``roter Faden'')?
+    \item Grammarly can only analyse PDFs in paid version. Does TU Wien have any free premium licenses for students or just for such occasions?
+    \item Is it okay, if my actual prototype implementation diverges a little bit from what I describe in my masters thesis in section \ref{sec:ttsm:prototype}?
+\end{itemize}
+
+To-Does:
+\begin{itemize}
+    \item[\checkmark] Send FMChain postman collections to Thomas
+    \item[\checkmark] Read over background chapter and correct it
+    \item Read over related work chapter and correct it
+    \item[\checkmark] Rename ``Proposal'' to ``Concept'', ``Proposed Concept'' or something similar
+    \item[\checkmark] Subsection in one line (maybe)
+    \item[\checkmark] Invite Thomas to prototype GitHub
+    \item[\checkmark] Design Science -- Guideline 7: Work is communication of research (look-up Hevner)
+    \item Move CQRS from proposed concept to background section
+    \item Grieving problem as part in discussion or evaluation from section \ref{sec:ttsm:proposal:reaching_consensus} open problem - needs workarounds
+    \item Workflow should be designed that each participant should have incentive to accept state transition
+    \item[\checkmark] Internal-activities are handled by local systems (participant specifying entire workflow, does not know of internal-activities of all other participants) in discussion
+    \item[\checkmark] In discussion showing, that mathematical properties could be improved
+    \item[\checkmark] Background chapter in Grammarly (can interpret LaTeX for free)
+\end{itemize}
+
+
+\section{2022.09.16}
+What happened since the last meeting?
+\begin{itemize}
+    \item Written about prototype design.
+    \item Written about qualitative evaluation.
+    \item Written about network topology in static analysis.
+\end{itemize}
+
+Questions:
+\begin{itemize}
+    \item 
+\end{itemize}
+
+To-Does:
+\begin{itemize}
+    \item Experimental analysis is more of simulative nature
+    \item Sentences are a bit long
+    \item Tables and graphics are too wide
+    \item Should the word ``taxonomy'' really be used? Martin will discuss this with Thomas. Maybe use ``classification'' instead.
+    \item Maybe cite from where criteria come from.
+    \item[\checkmark] Open question 2 in qualitative analysis is decentralized identity (did) problem (\url{https://www.w3.org/TR/did-core/}).
+    \item[\checkmark] ``Future work has to solve'' to ``an open issue is...''
+    \item[\checkmark] Rewrite banks example in section \ref{sec:evaluation:qualitative_analysis:privacy_criteria}
+    \item The concept is very modular, may require architectural analysis
+    \item[\checkmark] In section \ref{sec:evaluation:qualitative_analysis:summary} use ``transaction cost'' instead of ``the cost that blockchains produce''
+    \item In section \ref{sec:evaluation:qualitative_analysis:summary}: the sentence ``For the most part, this can be traced back to the role of the blockchain that is only of supportive nature.'' is THE USP of my work!!!! Reference literature (none available that only uses the blockchain as support) review and cite on- and off-chain paper.
+    \item Its modular!!
+    \item The sentence ``For the most part, this can be traced back to the role of the blockchain that is only of supportive nature.'' also in conclusion
+    \item[\checkmark] In section \ref{sec:evaluation:static_analysis}, $n$ is the number of participants involved in an activity.
+    \item[\checkmark] Not all participants must sign a state transition!!! Important point!
+\end{itemize}
+
+
+\section{2022.10.06}
+What happened since the last meeting?
+\begin{itemize}
+    \item Written introduction chapter.
+    \item Completed static analysis (see section \ref{sec:evaluation:static_analysis})
+    \item Really highlight the flexibility of the proposed approach (see section \ref{sec:evaluation:qualitative_analysis:summary})
+    \item Thoughts about experimental evaluation: Module for third-party software just listens to EventStore events and adds new events
+    \item Thoughts about experimental evaluation: Adapter for databases using a trigger that dispatches actions if certain fields change
+    \item Described prototype adaptations for scenario simulations in section \ref{sec:evaluation:simulations:adaptations}
+    \item Described three scenarios used for evaluation in section \ref{sec:evaluation:simulations:descriptions}.
+    \item Checked related work chapter \ref{sec:related-work} with Grammarly.
+\end{itemize}
+
+Questions:
+\begin{itemize}
+    \item Thesis probably needs a math check, especially regarding the static analysis in section \ref{sec:evaluation:static_analysis} in the evaluation.
+\end{itemize}
+
+To-Does:
+\begin{itemize}
+    \item[\checkmark] Experimental analysis using EVM because its portable
+    \item[\checkmark] Solidity-ByteCode converter for layer-2 rollups
+    \item Use case on zkSync / starknet
+    \item Camunda for existing solutions
+    \item[\checkmark] Book: Architecture for Blockchain Applications
+\end{itemize}
+
+
+\section{2022.11.11}
+What happened since the last meeting?
+\begin{itemize}
+    \item Finalized introduction (\ref{sec:introduction}).
+    \item Finalized background chapter incoporated feedback from Thomas (\ref{sec:background}).
+    \item Finalized related work chapter (\ref{sec:related-work}).
+    \item Finalized theoretical section of the \gls{ttsm} chapter (\ref{sec:ttsm}).
+    \item Completed the scenario simulations evaluation (\ref{sec:evaluation:simulations}).
+    \item Completed the integration with Camundas' Zeebe evaluation (\ref{sec:evaluation:integration}).
+    \item Answered RQ3 (\ref{sec:evaluation:integration:rq3}).
+    \item Completed the conclusion (\ref{sec:conclusion}).
+\end{itemize}
+
+Questions:
+\begin{itemize}
+    \item What do you think of my closing words?
+    \item Does the integration into Camundas' Zeebe make sense in this form?
+    \item Are the code listing properly chosen and applicable? I didn't put them into the prototype design section \ref{sec:ttsm:prototype} because they are extensions that are not directly part of the concept but a small example of ``how easy'' it is to extend the \gls{ttsm}.
+    \item Does my conclusion sound too modest or too ``haughty''? I feel like its almost a little bit too ``Einstein can keep his theory of relativity, look what I have accomplished!!''.
+    \item Replaced almost all ``like'' in background section with ``such as'', ``similar'' or ``as''. Are these terms more formal?
+\end{itemize}
+
+To-Does:
+\begin{itemize}
+    \item Incorporate feedback from Thomas.
+    \item Read \gls{ttsm} and evaluation chapter once again.
+    \item Prepare all required documents.
+    \item Create poster.
+\end{itemize}
+
+
+\section{2022.11.18}
+What happened since the last meeting?
+\begin{itemize}
+    \item Fixed all chktex-errors.
+    \item Written and finalized abstract in english and german.
+\end{itemize}
+
+Questions:
+\begin{itemize}
+    \item I don't want to fix the remaining issues, because I think they make things worse or are ``wrong'' errors. What to do?
+\end{itemize}
+
+To-Does:
+\begin{itemize}
+    \item Enable more chktex errors and check if I can fix them.
+    \item Persistence module requires a certain "Abfolge" of events
+    \item TTSM rolls back all inconsistent or invalid transaction (ruhig zu intrinsic properties)
+    \item Fußnote, dass TTSM und BCT-based TTSM äquivalent sind
+    \item "finality" ersetzen mit "transaction inclusion"
+    \item Mit Evaluation anfangen und Variablennamen anpassen
+    \item Füllwörter löschen
+    \item Zeitform ins Präsens bringen
+    \item Seite 114: Warum manche Samples 50 und manche 80 mal
+\end{itemize}
+
+
+\section{2022.11.24}
+\begin{itemize}
+    \item https://informatics.tuwien.ac.at/epilog/best-poster-award/ In-Design Testphase
+\end{itemize}

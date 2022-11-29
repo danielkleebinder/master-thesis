@@ -1,0 +1,360 @@
+\ifglsentryexists{pow}{}%
+{%
+\gls@defglossaryentry{pow}%
+{%
+name={PoW},%
+sort={PoW},%
+type={acronym},%
+first={Proof of Work\glsspace (PoW)},%
+firstplural={Proof of Works\glsspace (PoWs)},%
+text={PoW},%
+plural={PoWs},%
+description={Proof of Work},%
+descriptionplural={Proof of Work\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Proof of Work},%
+longplural={Proof of Works},%
+short={PoW},%
+shortplural={PoWs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{pos}{}%
+{%
+\gls@defglossaryentry{pos}%
+{%
+name={PoS},%
+sort={PoS},%
+type={acronym},%
+first={Proof of Stake\glsspace (PoS)},%
+firstplural={Proof of Stakes\glsspace (PoSs)},%
+text={PoS},%
+plural={PoSs},%
+description={Proof of Stake},%
+descriptionplural={Proof of Stake\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Proof of Stake},%
+longplural={Proof of Stakes},%
+short={PoS},%
+shortplural={PoSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{edcc}{}%
+{%
+\gls@defglossaryentry{edcc}%
+{%
+name={EDCC},%
+sort={EDCC},%
+type={acronym},%
+first={Executable Distributed Code Contract\glsspace (EDCC)},%
+firstplural={Executable Distributed Code Contracts\glsspace (EDCCs)},%
+text={EDCC},%
+plural={EDCCs},%
+description={Executable Distributed Code Contract},%
+descriptionplural={Executable Distributed Code Contract\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Executable Distributed Code Contract},%
+longplural={Executable Distributed Code Contracts},%
+short={EDCC},%
+shortplural={EDCCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{smr}{}%
+{%
+\gls@defglossaryentry{smr}%
+{%
+name={SMR},%
+sort={SMR},%
+type={acronym},%
+first={State Machine Replication\glsspace (SMR)},%
+firstplural={State Machine Replications\glsspace (SMRs)},%
+text={SMR},%
+plural={SMRs},%
+description={State Machine Replication},%
+descriptionplural={State Machine Replication\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={State Machine Replication},%
+longplural={State Machine Replications},%
+short={SMR},%
+shortplural={SMRs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{pbft}{}%
+{%
+\gls@defglossaryentry{pbft}%
+{%
+name={PBFT},%
+sort={PBFT},%
+type={acronym},%
+first={Practical Byzantine Fault Tolerance\glsspace (PBFT)},%
+firstplural={Practical Byzantine Fault Tolerances\glsspace (PBFTs)},%
+text={PBFT},%
+plural={PBFTs},%
+description={Practical Byzantine Fault Tolerance},%
+descriptionplural={Practical Byzantine Fault Tolerance\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Practical Byzantine Fault Tolerance},%
+longplural={Practical Byzantine Fault Tolerances},%
+short={PBFT},%
+shortplural={PBFTs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{tee}{}%
+{%
+\gls@defglossaryentry{tee}%
+{%
+name={TEE},%
+sort={TEE},%
+type={acronym},%
+first={Trusted Execution Environment\glsspace (TEE)},%
+firstplural={Trusted Execution Environments\glsspace (TEEs)},%
+text={TEE},%
+plural={TEEs},%
+description={Trusted Execution Environment},%
+descriptionplural={Trusted Execution Environment\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Trusted Execution Environment},%
+longplural={Trusted Execution Environments},%
+short={TEE},%
+shortplural={TEEs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{dapp}{}%
+{%
+\gls@defglossaryentry{dapp}%
+{%
+name={DApp},%
+sort={DApp},%
+type={acronym},%
+first={Distributed Applications\glsspace (DApp)},%
+firstplural={Distributed Applicationss\glsspace (DApps)},%
+text={DApp},%
+plural={DApps},%
+description={Distributed Applications},%
+descriptionplural={Distributed Applications\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Distributed Applications},%
+longplural={Distributed Applicationss},%
+short={DApp},%
+shortplural={DApps},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{dlt}{}%
+{%
+\gls@defglossaryentry{dlt}%
+{%
+name={DLT},%
+sort={DLT},%
+type={acronym},%
+first={Distributed Ledger Technology\glsspace (DLT)},%
+firstplural={Distributed Ledger Technologys\glsspace (DLTs)},%
+text={DLT},%
+plural={DLTs},%
+description={Distributed Ledger Technology},%
+descriptionplural={Distributed Ledger Technology\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Distributed Ledger Technology},%
+longplural={Distributed Ledger Technologys},%
+short={DLT},%
+shortplural={DLTs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{nft}{}%
+{%
+\gls@defglossaryentry{nft}%
+{%
+name={NFT},%
+sort={NFT},%
+type={acronym},%
+first={Non-Fungible Token\glsspace (NFT)},%
+firstplural={Non-Fungible Tokens\glsspace (NFTs)},%
+text={NFT},%
+plural={NFTs},%
+description={Non-Fungible Token},%
+descriptionplural={Non-Fungible Token\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Non-Fungible Token},%
+longplural={Non-Fungible Tokens},%
+short={NFT},%
+shortplural={NFTs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{bose}{}%
+{%
+\gls@defglossaryentry{bose}%
+{%
+name={BoSE},%
+sort={BoSE},%
+type={acronym},%
+first={Blockchain-oriented Software Engineering\glsspace (BoSE)},%
+firstplural={Blockchain-oriented Software Engineerings\glsspace (BoSEs)},%
+text={BoSE},%
+plural={BoSEs},%
+description={Blockchain-oriented Software Engineering},%
+descriptionplural={Blockchain-oriented Software Engineering\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Blockchain-oriented Software Engineering},%
+longplural={Blockchain-oriented Software Engineerings},%
+short={BoSE},%
+shortplural={BoSEs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ux}{}%
+{%
+\gls@defglossaryentry{ux}%
+{%
+name={UX},%
+sort={UX},%
+type={acronym},%
+first={User Experience\glsspace (UX)},%
+firstplural={User Experiences\glsspace (UXs)},%
+text={UX},%
+plural={UXs},%
+description={User Experience},%
+descriptionplural={User Experience\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={User Experience},%
+longplural={User Experiences},%
+short={UX},%
+shortplural={UXs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{abi}{}%
+{%
+\gls@defglossaryentry{abi}%
+{%
+name={ABI},%
+sort={ABI},%
+type={acronym},%
+first={Application Binary Interface\glsspace (ABI)},%
+firstplural={Application Binary Interfaces\glsspace (ABIs)},%
+text={ABI},%
+plural={ABIs},%
+description={Application Binary Interface},%
+descriptionplural={Application Binary Interface\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Application Binary Interface},%
+longplural={Application Binary Interfaces},%
+short={ABI},%
+shortplural={ABIs},%
+counter={page},%
+parent={},%
+%
+}%
+}%

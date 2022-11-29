@@ -1,0 +1,139 @@
+\section{How to write a thesis}
+This section is just a collection of links, tips and tricks on how to write a thesis and how to stay motivated.
+
+\subsection{Stupid Question: Why is Writing a Thesis So Hard?}
+\begin{quote}
+    ``For me, the hardest thing was getting the structure and story right. Second hardest was staying motivated and concentrating. For the structure, the best thing I found when I was struggling (and tbh, even when I wasn't) was to break it down into headings, subheadings, subsubheadings, etc. Work out roughly what you want the point of a paragraph to be. Jot down sentences as bullet points of keywords if you need to. Don't just sit down to write and expect it to flow. Sometimes you'll write things and need to move them around, but it's much easier to try and work out the flow of the story in advance. This also helps with motivation, because it's naturally broken down into small manageable chunks so it's much easier to progress.''
+\end{quote}
+
+\begin{itemize}
+    \item Stick to your proposal, it's a major milestone and answers a lot of questions.
+\end{itemize}
+
+\url{https://www.reddit.com/r/GradSchool/comments/f4p41p/stupid_question_why_is_writing_a_thesis_so_hard/}
+
+\subsection{Submission}
+Some links regarding master thesis submission at the TU Vienna:
+
+\begin{itemize}
+    \item \url{https://informatics.tuwien.ac.at/study-services/dates/#master-diplomprüfung}
+    \item \url{https://informatics.tuwien.ac.at/study-services/master-graduation/}
+\end{itemize}
+
+\section{Interesting Papers}
+The following list of papers and references was used to introduce the author to the topics of consensus, offchain vs onchain and the baseline protocol. It is ordered going from broad references that introduce one to a topic to very specific topics that require some knowledge from previous references.
+
+\subsection{Designing Data-Intensive Applications}
+The author gives a sophisticated introduction to consensus mechanisms and why they are important for distributed systems based on a lot of references and research papers.
+
+\textbf{Martin Kleppmann}~\cite{kleppmann17desig} (p.364--375)
+
+\subsection{The Byzantine Generals Problem}
+This paper introduces the reader to the Byzantine Generals Problem and proves in a quite understandable fashion that a computer system with $n \leq 3f$ nodes cannot be trusted if $f$ nodes are faulty.
+
+\textbf{Leslie Lamport, Robert Shostak, Marshall Pease}~\cite{lamport2002}
+
+\subsection{Impossibility of distributed consensus with one faulty process}
+The famous paper from Fischer et al.\ that won the Dijkstra price for being one of the most influential papers in distributed systems in the recent years. The authors impressively show that, in a purely asynchronous (deterministic) system, you cannot have safety, liveliness and fault-tolerance properties of a consensus protocol all at once.
+
+\textbf{Michael J. Fischer, Nancy A. Lynch, Michael S. Paterson}~\cite{impossibility_result_1985}
+
+\subsection{Practical Byzantine Fault Tolerance}
+Barbara Liskov and Miguel Castro show the first practical implementation of an asynchronous Byzantine fault tolerant algorithm using NFS and introduce the reader to concepts like liveliness and safety properties.
+
+\textbf{Barbara Liskov, Miguel Castro}~\cite{liskov1999}
+
+\subsection{The latest gossip on BFT consensus}
+Tendermint is a BFT consensus algorithm that uses the foundation and concepts built by PBFT and applies them to the blockchain by changing the way proposers (i.e.\ ``leaders'') are elected and views are changed.
+
+\textbf{Ethan Buchman, Jae Kwon, Zarko Milosevic}~\cite{tendermint2018}
+
+\subsection{State Machine Replication for the Masses with BFT-SMART}
+This paper shows how the BFT-SMART framework was implemented, which difficulties the authors had to face and how they guarantee improved reliability with modularity and crash tolerance besides the built in Byzantine fault tolerance.
+
+\textbf{Alysson Bessani, Joao Sousa, Eduardo E. P. Alchieri}~\cite{bessani14state_machin_replic_masses_bft_smart}
+
+\subsection{From Byzantine Consensus to BFT State Machine Replication: A Lateny-Optimal Transformation}
+The authors show in detail how the MOD-SMART module of the BFT-SMART framework was implemented and how they achieved latency and resiliency optimization in their algorithm.
+
+\textbf{Alysson Bessani, Joao Sousa}~\cite{sousa12from_byzan_consen_bft_state_machin_replic}
+
+\subsection{Stumbling over Consensus Research: Misunderstandings and Issues}
+The author of this paper tries to close the gap between theoretical consensus research and practical use. He states, that practitioners often misunderstand some of the theoretical concepts in consensus and thus frequently miss some opportunities.
+
+\textbf{Marcos K. Aguilera}~\cite{aguilera2010}
+
+\subsection{Bitcoin: A Peer-to-Peer Electronic Cash System}
+The original whitepaper of Bitcoin by Satoshi Nakamoto written in quite easily understandable fashion that outlines the core principles of Bitcoin very well.
+
+\textbf{Satoshi Nakamoto}~\cite{nakamoto2009}
+
+\subsection{Majority is not enough: Bitcoin mining is vulnerable}
+This paper introduces the reader to the concept of ``Selfish Mining'' which can be used on proof-of-work based blockchains to increase the revenue from mining by a degree that is usually not intended.
+
+\textbf{Ittay Eyal, Emin Gün Sirer}~\cite{eyal2013}
+
+\subsection{A Next-Generation Smart Contract and Decentralized Application Platform}
+The original whitepaper of Ethereum by Vitalik Buterin. It contains the concepts on which Ethereum relys on and explains them quite understandably.
+
+\textbf{Vitalik Buterin}~\cite{buterin2020}
+
+\subsection{Blockchain without Waste: Proof-of-Stake}
+One of the original scientific papers about proof of stake that shows disadvantages of proof of work blockchains and how proof of stake could improve upon this.
+
+\textbf{Fahad Saleh}~\cite{proof_of_stake}
+
+\subsection{Applicability and Appropriateness of Distributed Ledgers Consensus Protocols in Public and Private Sectors: A Systematic Review}
+A profound review and comparison of all consensus protocols available at the time the paper was written. It ranges from proof of work to PBFT and Tendermint even considering rather exotic variations like Magi's proof of stake or proof of spacetime.
+
+\textbf{A. Shahaab, B. Lidgey, C. Hewage, I. Khan}~\cite{consensus_comparison_2019}
+
+\subsection{Cambridge Bitcoin Electricity Consumption Index}
+A web-platform that shows the total amount of energy consumed by Bitcoin and includes some interesting comparisons with countries and others.
+
+\textbf{Cambridge University}~\cite{cbeci}
+
+\subsection{On or Off the Blockchain? Insights on Off-Chaining Computation and Data}
+A great paper outlining the advantages and disadvantages of off-chaining in the context of Ethereum. The authors introduce 5 new interesting patterns on off-chaining computation and storage.
+
+\textbf{Jacob Eberhardt, Stefan Tai}~\cite{eberhardt17off_block}
+
+\subsection{Off-chaining Models and Approaches to Off-chain Computations}
+The authors give motivation to off-chaining storage and computation and introduce some off-chain computation approaches that allow users to keep certain data private but still be able to interact with blockchains (be it in the form of zero-knowledge proofs or TEEs).
+
+\textbf{Jacob Eberhardt, Jonathan Heiss}~\cite{eberhardt18off_model_approac_off_comput}
+
+\subsection{Towards Blockchain Tactics: Building Hybrid Decentralized Software Architectures}
+A systematic method for designing Blockchain applications is required. The authors showcase this circumstance using a simple example where gas cost of an Ethereum smart contract diverges dramatically depending on the use case.
+
+\textbf{Florian Wessling, Christopher Ehmke, Ole MEyer, Volker Gruhn}~\cite{towards_blockchain_tactics}
+
+\subsection{Building Hybrid DApps using Blockchain Tactics: The Meta-Transaction Example}
+Meta-transactions are transactions towards EDCC that are signed by the creator of the transaction but sent to the blockchain by some other third party. This paper shows different approaches to meta-transactions and what the differences between strategies, tactics and design patterns are.
+
+\textbf{Florian Blum, Benedikt Severin, Michael Hettmer, Philipp Hückinghaus, Volker Gruhn}~\cite{building_hybrid_dapps_using_blockchain_tactics}
+
+\subsection{How much Blockchain do you need? Towards a Concept for building hybrid DApp Architectures}
+Deciding upon the macro-architecture of a software application is no trivial task. Especially, because most blockchain applications are so complex, that not all parts require direct blockchain interaction. This paper shows a systematic method on how to determine which parts of an architecture require blockchain technology and which do not.
+
+\textbf{Florian Wessling, Christopher Ehmke, Marc Hesenius, Volker Gruhn}~\cite{how_much_blockchain_do_you_need}
+
+\subsection{Engineering Software Architectures of Blockchain-Oriented Applications}
+Which options do users have when interacting with the blockchain? This paper answers this question and compares the three options by security, trust and convenience aspects.
+
+\textbf{Florian Wessling, Volker Gruhn}~\cite{engineering_software_architectures_of_BO_Apps}
+
+\subsection{Blockchain-oriented Software Engineering: Challenges and new Directions}
+The authors motivate the reader by listing some million dollar mistakes made from incorrect software engineering on blockchain applications, that a systematic approach is needed and show some challenges based on blockchain technology.
+
+\textbf{Andrea Pinna, Michele Marchesi, Roberto Tonelli}~\cite{blockchain_oriented_software_engineering}
+
+\subsection{Making Smart Contracts Smarter}
+The authors give a basic introduction to consensus and smart contracts in Ethereum and continue with common vulnerabilities and attack vectors and show how one might circumvent them.
+
+\textbf{Loi Luu, Duc-Hiep Chu, Hrishi Olickel, Prateek Saxena, Aquinas Hobor}~\cite{making_smart_contracts_smarter}
+
+\subsection{A Survey of Tools for Analyzing Ehtereum Smart Contracts}
+Very interesting paper about the available tooling for analyzing Ethereum smart contracts from Monika di Angelo and Gernot Salzer from TU Wien with insight on what is currently possible, what not and what developers of such tool should consider.
+
+\textbf{Monika di Angelo, Gernot Salzer}~\cite{tools_for_analyzing_smart_contracts}

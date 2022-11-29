@@ -1,0 +1,47 @@
+\label{sec:conclusion}
+
+Computer-aided \gls{bpm} is a hot topic for both industrial and research communities. With the uprise of blockchains in recent years, the latter started an endeavor towards blockchain-based \gls{bpm} to leverage on one of its unique properties of \glspl{bct} --- trust. Organizations and companies can now cooperate with each other without the need for a centralized, trusted third party. Nonetheless, research has been following a strict trend where software has been tightly coupled to the underlying blockchain resulting in a lack of flexibility and privacy. By performing a narrative literature review and applying design science, this work created a novel concept for building \gls{bpm} systems that take advantage of the properties blockchains provide without restricting themselves by their shortcomings.
+
+The concept proposes a four-module architecture where each module ensures specific properties. The \textit{workflow module} is solely responsible for the creation and execution of workflows. By extending its interface, it can support a vast range of different \gls{bp} modeling languages and is, therefore, very much declarative; a desirable property regarding the practical value of such systems. As the second one, the \textit{rules module} allows participants to verify if rules beyond simple workflow semantics are fulfilled. The third module, the \textit{consistency module}, provides an abstract interface to the underlying \gls{bct}. There are no strict requirements for this module. Usage of the Bitcoin network is as viable as the usage of layer-2 rollups, for example. The last module provides persistent storage and a convenient interface that allows participants to time travel between different workflow states. During the course of this work, the concept was continuously evaluated against qualitative metrics and predefined \glspl{bp} to constantly improve its practicality.
+
+The evaluation has shown significant traits regarding flexibility without forfeiting trust, traceability, or auditability provided by the underlying \gls{bct}. This was traced back to the \gls{ttsm} operating one layer above the \gls{bct} without requiring tight coupling; a characteristic that has not yet been investigated in much detail in related literature. This allows for a highly modular architecture where components are only loosely coupled, interchangeable and extensible, resulting in a list of advantages, including the option to switch between blockchains if needed, dynamic participant selection, or adjusting the workflow structure while being executed. Furthermore, during the execution of exemplary scenarios, it has been shown that, depending on the requirements of the participants, privacy can be fully preserved or only in parts if needed. In what detail conflicts between participants can be resolved then weakly correlates with the level of privacy.
+
+Additionally, the proposed concept also reduces the overall execution cost of workflows. For the scenarios simulated in the evaluation, the \gls{ttsm} prototype performed better than most existing solutions. However, the cost correlates linearly with the number of participants involved and will break even if this number exceeds a certain threshold. Nonetheless, there are promising \gls{bose} software design patterns that can solve this issue. Further investigation in future work is advised.
+
+Even though introducing an architecture that separates the blockchain and the workflow execution engine increases the system's complexity to some extent, it brings forth desirable properties, as mentioned above. Related literature and existing solutions, however, broadly introduce a tight coupling between both. Therefore, future work might want to investigate further into building blockchain-based \gls{bpm} systems as layer-2 or layer-3 applications instead of directly leveraging on the blockchain and running code on layer-1. However, this requires preliminary work identifying desirable layer-1 properties and how they can be transferred and used on layer-2 or layer-3. In this context, one might extend and leverage upon the \textit{consistency module} as proposed in this work.
+
+Another topic future work should extend upon is the investigation of compensation mechanisms for lost peer-to-peer or even peer-to-blockchain connections. Solving this problem from the distributed systems domain further improves resiliency of the choreography but requires preliminary research of algorithms with small on-chain footprint that enables participants to verify the integrity of messages exchanged between participants.
+
+% The proposed concept internally operates upon statecharts to execute workflow logic. This requires conversion is required to support diagrams created with different modeling languages. Even though ground laying work already exists that describes reduction algorithms from UML sequence diagrams or process models to statecharts, algorithms for \gls{bpmn} are still missing. Resolving this open problem will further increase practical acceptance of the proposed approach because participants no longer have to manually convert diagrams to statecharts which is potentially error-prone.
+
+Regarding the integration into other systems, a couple of open problems are still to answer. One is the handling of large or exotically structured payloads in state transitions. They cannot be part of the \textit{persistence module} itself because it would clutter storage and transfer potentially unnecessary information between participants. A solution one might investigate is \textit{content-addressable storage} where only the reference to the data is exchanged and stored on-chain. Another aspect to consider is the integration into existing \gls{bpm} systems. Even though the integration into Camunda's Zeebe workflow execution engine has been shown to be viable during the evaluation, a thorough investigation is still outstanding.
+
+Nonetheless, the idea of a \gls{ttsm} that operates off-chain, but leverages upon the unique properties of \glspl{bct}, has been demonstrated. Especially improved flexibility is a trait future systems might build upon. This work should be considered as a starting point for \gls{bpm} systems that take advantage of the blockchain as a source of trust, traceability, and auditability while treating it as a loosely coupled sub-system of supportive nature.
+
+
+% \subsubsection{Improvements}
+% \label{sec:conclusion:future_work:improvements}
+
+% \begin{itemize}
+    % \item Open problem: Investigation of applicable techniques to reduce the number of participants involved in an operation to a minimum\footnote{Only the middleman and the carrier have to accept or reject a state transition if supplier, manufacturer and buyer are not involved in this process step, for example.}.
+    % \item Open problem: Investigation of applicable blockchain-oriented software design patterns that allow decoupling of execution cost and the number of participants.
+    % \item Open problem: The investigation of algorithms with a small on-chain footprint that enables participants the verify message integrity (see \ref{sec:evaluation:static_analysis:summary}).
+    % \item Open problem: the investigation of compensation mechanisms for lost peer-to-peer or even peer-to-blockchain connections to further increase resiliency (see \ref{sec:evaluation:static_analysis:summary}).
+    % \item Open problem: Figuring out the details of optimistic execution is up to future work (see \ref{sec:evaluation:simulations:execution_duration}).
+    % \item Translators: How to convert choreography and BPMN diagrams to state charts?
+    % \item Workflow instances cannot be modified during execution.
+    % \item On-demand workflow instance participant selection (technically possible as an extension).
+    % \item Authentication issue of participants could be solved by signing contracts that someone truly is being a certain wallet for example.
+    % \item Multi-chain support to make discussion chapter more interesting (already described in section \ref{sec:ttsm:proposal:entering_blockchain_and_distributing_commands} to some extent as well)?
+% \end{itemize}
+
+
+% \subsubsection{Integrations}
+% \label{sec:conclusion:future_work:integrations}
+
+% \begin{itemize}
+    % \item Handling of large payloads: Possible solution is to  only transmit references to Speckle\footnote{\url{https://speckle.systems/}} or content-addressable storage\footnote{\url{https://en.wikipedia.org/wiki/Content-addressable_storage}} commits?
+    % \item Availability and resiliency of the sub-systems: The consistency module and all sub-systems including the event store and the blockchain need some level of availability because dropped messages and error cases are still not answered.
+    % \item Rules Module: The details of the rules module, how it time travels, how and what it verifies and how users specify rules is still open.
+    % \item Internal-activities are handled by local systems (participant specifying entire workflow, does not know of internal-activities of all other participants) in discussion.
+% \end{itemize}

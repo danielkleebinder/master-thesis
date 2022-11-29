@@ -1,0 +1,313 @@
+% Copyright (C) 2014-2020 by Thomas Auzinger <thomas@auzinger.name>
+% chktex-file 1
+% chktex-file 9
+% chktex-file 18
+
+\documentclass[draft,final]{vutinfth} % Remove option 'final' to obtain debug information.
+
+% Load packages to allow in- and output of non-ASCII characters.
+\usepackage{lmodern}        % Use an extension of the original Computer Modern font to minimize the use of bitmapped letters.
+\usepackage[T1]{fontenc}    % Determines font encoding of the output. Font packages have to be included before this line.
+\usepackage[utf8]{inputenc} % Determines encoding of the input. All input files have to use UTF8 encoding.
+
+% Extended LaTeX functionality is enables by including packages with \usepackage{...}.
+\usepackage{amsmath}    % Extended typesetting of mathematical expression.
+\usepackage{amssymb}    % Provides a multitude of mathematical symbols.
+\usepackage{mathtools}  % Further extensions of mathematical typesetting.
+\usepackage{microtype}  % Small-scale typographic enhancements.
+\usepackage[inline]{enumitem} % User control over the layout of lists (itemize, enumerate, description).
+\usepackage{multirow}   % Allows table elements to span several rows.
+\usepackage{makecell}   % Allows to customize table cells
+\usepackage{booktabs}   % Improves the typesettings of tables.
+\usepackage{subcaption} % Allows the use of subfigures and enables their referencing.
+\usepackage[ruled,linesnumbered,algochapter]{algorithm2e} % Enables the writing of pseudo code.
+\usepackage[usenames,dvipsnames,table]{xcolor} % Allows the definition and use of colors. This package has to be included before tikz.
+\usepackage{nag}       % Issues warnings when best practices in writing LaTeX documents are violated.
+\usepackage{todonotes} % Provides tooltip-like todo notes.
+\usepackage{hyperref}  % Enables cross linking in the electronic document version. This package has to be included second to last.
+\usepackage[acronym,toc]{glossaries} % Enables the generation of glossaries and lists fo acronyms. This package has to be included last.
+
+% Define convenience functions to use the author name and the thesis title in the PDF document properties.
+\newcommand{\authorname}{Daniel Kleebinder} % The author name without titles.
+\newcommand{\thesistitle}{Time-travelling State Machines for Verifiable BPM} % The title of the thesis. The English version should be used, if it exists.
+\usepackage{listings} % enables code listings
+\renewcommand{\lstlistlistingname}{List of Listings}
+\usepackage{xcolor}   % definition of custom color aliases
+
+% Set PDF document properties
+\hypersetup{
+    pdfpagelayout   = TwoPageRight,           % How the document is shown in PDF viewers (optional).
+    linkbordercolor = {Melon},                % The color of the borders of boxes around crosslinks (optional).
+    pdfauthor       = {\authorname},          % The author's name in the document properties (optional).
+    pdftitle        = {\thesistitle},         % The document's title in the document properties (optional).
+    pdfsubject      = {Subject},              % The document's subject in the document properties (optional).
+    pdfkeywords     = {a, list, of, keywords} % The document's keywords in the document properties (optional).
+}
+
+\setpnumwidth{2.5em}        % Avoid overfull hboxes in the table of contents (see memoir manual).
+\setsecnumdepth{subsection} % Enumerate subsections.
+
+\nonzeroparskip             % Create space between paragraphs (optional).
+\setlength{\parindent}{0pt} % Remove paragraph identation (optional).
+
+\makeindex      % Use an optional index.
+\makeglossaries % Use an optional glossary.
+%\glstocfalse   % Remove the glossaries from the table of contents.
+
+% Set persons with 4 arguments:
+%  {title before name}{name}{title after name}{gender}
+%  where both titles are optional (i.e. can be given as empty brackets {}).
+\setauthor{}{\authorname}{BSc}{male}
+\setadvisor{Univ.Prof.\ Dipl.-Ing.\ Dr.techn.}{Wolfgang Kastner}{}{male}
+
+% For bachelor and master theses:
+\setfirstassistant{Dipl.-Ing.}{Thomas Preindl}{BSc}{male}
+\setsecondassistant{Dipl.-Ing.}{Martin Kjäer}{BSc}{male}
+%\setthirdassistant{Pretitle}{Forename Surname}{Posttitle}{male}
+
+% For dissertations:
+\setfirstreviewer{Pretitle}{Forename Surname}{Posttitle}{male}
+\setsecondreviewer{Pretitle}{Forename Surname}{Posttitle}{male}
+
+% For dissertations at the PhD School and optionally for dissertations:
+\setsecondadvisor{Pretitle}{Forename Surname}{Posttitle}{male} % Comment to remove.
+
+% Required data.
+\setregnumber{51832684}
+\setdate{01}{12}{2022} % Set date with 3 arguments: {day}{month}{year}.
+\settitle{\thesistitle}{Time-travelling State Machines for Verifiable BPM} % Sets English and German version of the title (both can be English or German). If your title contains commas, enclose it with additional curvy brackets (i.e., {{your title}}) or define it as a macro as done with \thesistitle.
+\setsubtitle{}{} % Sets English and German version of the subtitle (both can be English or German).
+
+% Select the thesis type: bachelor / master / doctor / phd-school.
+% Bachelor:
+%\setthesis{bachelor}
+%
+% Master:
+\setthesis{master}
+\setmasterdegree{dipl.} % dipl. / rer.nat. / rer.soc.oec. / master
+%
+% Doctor:
+%\setthesis{doctor}
+%\setdoctordegree{rer.soc.oec.}% rer.nat. / techn. / rer.soc.oec.
+%
+% Doctor at the PhD School
+%\setthesis{phd-school} % Deactivate non-English title pages (see below)
+
+% For bachelor and master:
+\setcurriculum{Software Engineering and Internet Computing}{Software Engineering und Internet Computing} % Sets the English and German name of the curriculum.
+
+% For dissertations at the PhD School:
+\setfirstreviewerdata{Affiliation, Country}
+\setsecondreviewerdata{Affiliation, Country}
+
+\definecolor{delim}{RGB}{20,105,176}
+\definecolor{numb}{RGB}{106, 109, 32}
+\definecolor{string}{rgb}{0.64,0.08,0.08}
+
+\lstdefinelanguage{json}{
+    frame=single,
+    rulecolor=\color{black},
+    showspaces=false,
+    showtabs=false,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{gray}\hookrightarrow\space}},
+    breakatwhitespace=true,
+    basicstyle=\ttfamily\small,
+    upquote=true,
+    morestring=[b]",
+    stringstyle=\color{string},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+% Copyright 2017 Sergei Tikhomirov, MIT License
+% https://github.com/s-tikhomirov/solidity-latex-highlighting/
+
+\definecolor{verylightgray}{rgb}{.97,.97,.97}
+
+\lstdefinelanguage{Solidity}{
+	keywords=[1]{anonymous, assembly, assert, balance, break, call, callcode, case, catch, class, constant, continue, constructor, contract, debugger, default, delegatecall, delete, do, else, emit, event, experimental, export, external, false, finally, for, function, gas, if, implements, import, in, indexed, instanceof, interface, internal, is, length, library, log0, log1, log2, log3, log4, memory, modifier, new, payable, pragma, private, protected, public, pure, require, return, returns, revert, selfdestruct, send, solidity, storage, struct, suicide, super, switch, then, this, throw, transfer, true, try, typeof, using, value, view, while, with, addmod, ecrecover, keccak256, mulmod, ripemd160, sha256, sha3}, % generic keywords including crypto operations
+	keywordstyle=[1]\color{blue}\bfseries,
+	keywords=[2]{address, bool, byte, bytes, bytes1, bytes2, bytes3, bytes4, bytes5, bytes6, bytes7, bytes8, bytes9, bytes10, bytes11, bytes12, bytes13, bytes14, bytes15, bytes16, bytes17, bytes18, bytes19, bytes20, bytes21, bytes22, bytes23, bytes24, bytes25, bytes26, bytes27, bytes28, bytes29, bytes30, bytes31, bytes32, enum, int, int8, int16, int24, int32, int40, int48, int56, int64, int72, int80, int88, int96, int104, int112, int120, int128, int136, int144, int152, int160, int168, int176, int184, int192, int200, int208, int216, int224, int232, int240, int248, int256, mapping, string, uint, uint8, uint16, uint24, uint32, uint40, uint48, uint56, uint64, uint72, uint80, uint88, uint96, uint104, uint112, uint120, uint128, uint136, uint144, uint152, uint160, uint168, uint176, uint184, uint192, uint200, uint208, uint216, uint224, uint232, uint240, uint248, uint256, var, void, ether, finney, szabo, wei, days, hours, minutes, seconds, weeks, years},	% types; money and time units
+	keywordstyle=[2]\color{teal}\bfseries,
+	keywords=[3]{block, blockhash, coinbase, difficulty, gaslimit, number, timestamp, msg, data, gas, sender, sig, value, now, tx, gasprice, origin},	% environment variables
+	keywordstyle=[3]\color{violet}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{gray}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	morestring=[b]',
+	morestring=[b]"
+}
+
+\lstset{
+	language=Solidity,
+    frame=single,
+    rulecolor=\color{black},
+    showspaces=false,
+    showtabs=false,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{gray}\hookrightarrow\space}},
+    breakatwhitespace=true,
+    basicstyle=\ttfamily\small,
+    upquote=true,
+    morestring=[b]",
+    stringstyle=\color{string},
+}
+
+\lstdefinelanguage{JavaScript}{
+    keywords={typeof, new, true, false, catch, function, return, null, try, catch, switch, var, if, in, while, do, else, case, break, async, await, const, for, of},
+    keywordstyle=\color{blue}\bfseries,
+    ndkeywords={class, export, boolean, throw, implements, import, this},
+    ndkeywordstyle=\color{darkgray}\bfseries,
+    identifierstyle=\color{black},
+    sensitive=false,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    commentstyle=\color{gray}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    morestring=[b]',
+    morestring=[b]"
+}
+
+\lstset{
+    language=JavaScript,
+    frame=single,
+    rulecolor=\color{black},
+    showspaces=false,
+    showtabs=false,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{gray}\hookrightarrow\space}},
+    breakatwhitespace=true,
+    basicstyle=\ttfamily\small,
+    upquote=true,
+    morestring=[b]",
+    stringstyle=\color{string},
+}
+
+\begin{document}
+
+\frontmatter % Switches to roman numbering.
+% The structure of the thesis has to conform to the guidelines at
+%  https://informatics.tuwien.ac.at/study-services
+
+\addtitlepage{naustrian} % German title page (not for dissertations at the PhD School).
+\addtitlepage{english} % English title page.
+\addstatementpage
+
+\begin{danksagung*}
+Ich möchte meinem Betreuer Wolfgang Kastner für all seine wertvollen Ratschläge und die Möglichkeit, Teil der Automation Systems Group (ASG) zu werden, danken. Die gemeinsame Arbeit an einigen Forschungsprojekten und das Miterleben echter Wissenschaft war eine Erfahrung, für die ich sehr dankbar bin. Außerdem möchte ich Thomas Preindl und Martin Kjäer für ihre Ausdauer, ihr kontinuierliches Feedback und vor allem unsere spannenden Diskussionen danken. Aufgrund ihrer unermüdlichen Unterstützung wurde diese Arbeit zu dem, was sie heute ist.
+
+Darüber hinaus möchte ich mich bei allen anderen an der Universität Tätigen dafür bedanken, dass ich die Chance erhalten habe, diese faszinierende Ausbildung genießen zu dürfen. Das vielfältige Curriculum, das häufig mit Begeisterung und Freude gelehrt wurde, führte so auch zu unvergesslichen Momenten, an die ich mich gerne zurückerinnere.
+
+Abschließend möchte ich meinen Eltern Franz und Margit dafür danken, dass sie mir während meines Studiums immer mit Rat und Tat zur Seite gestanden sind, meinen Brüdern, mit denen ich auch in schwierigen Zeiten noch etwas zu lachen gefunden habe, und meiner Freundin Cornelia für ihre Ermutigungen und Unterstützung. Danke, dass ihr für mich da seid und mir geholfen habt, in dieser Arbeit wie auch in meinem Studium bis zum Schluss mein Bestes zu geben.
+\end{danksagung*}
+
+\begin{acknowledgements*}
+I want to thank my advisor Wolfgang Kastner for all his valuable input and the chance to become part of the Automation Systems Group (ASG). The joint work on some of the research projects and witnessing real scientific labor was an experience I am very grateful for. Furthermore, I want to thank Thomas Preindl and Martin Kjäer for their perseverance, constant feedback, and especially our exciting discussions. Due to their relentless work and support, this thesis has become what it is today.
+
+Moreover, I want to express my gratitude to everyone else being part of the university for allowing me to attend this fascinating education and for developing a manifold curriculum that was taught with enthusiasm, often leading to memorable moments.
+
+Finally, I want to thank my parents, Franz and Margit, for their guidance, emotional and financial support; my brothers, who were always up for laughter even when times got tough; and my girlfriend, Cornelia, for her advice and encouragement. Thank you all for being there for me and helping me finish this thesis and my studies.
+\end{acknowledgements*}
+
+\begin{kurzfassung}
+Bei der Verwaltung von Geschäftsprozessen sind Unternehmen häufig auf Dritte angewiesen, um Vertrauen zwischen allen Beteiligten schaffen zu können. Seit dem Aufkommen der Blockchain-Technologie zielen Forschende weltweit darauf ab, Blockchains als eine eben solche vertrauenswürdige dritte Partei einzusetzen, um auf deren strikte Nachvollziehbarkeit bauen zu können. Diese Ansätze sind allerdings meist sehr stark mit der Blockchain selbst verzahnt, was zu mangelnder Flexibilität oder erhöhten Kosten führen kann. Aus diesem Grund wird in dieser Arbeit ein neuartiges Konzept vorgestellt, das die Ausführung und Überprüfung von Geschäftsprozessen mit Hilfe der Blockchain zwar ermöglicht, Eigenschaften wie Flexibilität aber dennoch erfüllt.
+
+Das Konzept selbst basiert auf einer modularen Softwarearchitektur, bei der jedes Modul über ein Event-Sourcing-System lose mit anderen Modulen gekoppelt ist. Es zielt darauf ab, die Vorteile einer Blockchain zu bewahren, indem es Beteiligten unter anderem erlaubt, vergangene Zustände zu verifizieren, wobei der Beweis für die Korrektheit dieser Zustände allerdings auf der Blockchain selbst zu finden ist. Dieser Ansatz wurde mithilfe bestehender Literatur entwickelt und später als Prototyp umgesetzt.
+
+Anschließend wurde das Konzept und der entsprechende Prototyp anhand qualitativer Kriterien bewertet, und die Komplexität durch Anwendung formaler Methoden auf deren statische Strukturen analysiert. Nachfolgend wurde der praktische Nutzen mithilfe von vereinfachten Geschäftsprozessen aufgezeigt. Im Vergleich zu bestehenden Ansätzen ergaben sich drastische Verbesserungen in Bezug auf Flexibilität und Datenschutz. Weiters beträgt die mittlere Dauer einer Geschäftsprozesstransaktion auf Ethereum etwa 18 Sekunden, was diesen Ansatz für, sowohl lang- als auch kurzlebige, Geschäftsprozesse nutzbar macht. Dennoch bleiben auch Nachteile bestehen. Die Geschäftsprozesstransaktionskosten korrelieren linear mit der Anzahl der Teilnehmenden, was bei kleineren Geschäftsprozessen zwar zu einer Gesamtkostenreduktion führen kann, bei größeren allerdings eine Teuerung darstellt.
+
+Die Idee hinter dieser Arbeit ist nicht nur die Vorstellung eines neuen Konzepts zur Ausführung und Verifizierung von Geschäftsprozessen mithilfe der Blockchain, sie soll auch zukünftige Arbeiten dazu anregen, die Blockchain selbst nur noch als lose gekoppeltes Subsystem zu betrachten, um den Nachteilen solcher Systeme begegnen zu können.
+\end{kurzfassung}
+
+\begin{abstract}
+Inter-organizational business process management often relies on third parties to establish trust between participants. Since the rise of blockchain technology and its associated properties regarding traceability, research communities aim to integrate blockchains into workflow execution engines in favor of a trusted third party. Frequently, these approaches directly leverage upon the blockchain, which leads to shortcomings such as a lack of flexibility or increased cost. Therefore, this thesis proposes a novel concept that allows workflow execution and verification using the blockchain while preserving flexibility and reducing transaction costs by utilizing present-day cryptography.
+
+The concept relies on a modular software architecture where each module is loosely coupled to others through an event-sourcing system. It aims to preserve the advantages of a blockchain by enabling time travel to allow participants to verify past states while keeping proof of the correctness of these states on the blockchain, which acts as a single source of truth. The proposed approach was derived by discussing related literature and exploring its practical utility by creating a prototypical implementation.
+
+The proposed concept and its prototype were evaluated against qualitative criteria extracted from related work, while the complexity was analyzed by applying formal methods to static structures. Afterwards, their practical utility was exhibited by executing simulations of simplified real-world business processes. The evaluation has shown dramatic improvements regarding flexibility and privacy. Furthermore, the execution duration per transaction was observed to be around 18 seconds on Ethereum. This qualifies the proposed concept as a suitable approach for slow- and fast-paced business processes. Nonetheless, some shortcomings remain. The execution cost linearly correlates to the number of participants, which results in an overall cost reduction for smaller business processes but breaks even and exceeds other approaches after reaching a certain threshold.
+
+This work presents a novel idea for workflow execution that leverages on properties of blockchains and instigates future work to demystify and treat blockchains only as loosely coupled sub-systems of supportive nature.
+\end{abstract}
+
+% Select the language of the thesis, e.g., english or naustrian.
+\selectlanguage{english}
+
+% Add a table of contents (toc).
+\tableofcontents % Starred version, i.e., \tableofcontents*, removes the self-entry.
+
+% Switch to arabic numbering and start the enumeration of chapters in the table of content.
+\mainmatter
+
+\chapter{Introduction}
+\input{introduction/introduction}
+
+\chapter{Background}
+\input{background/background}
+
+\chapter{Related Work}
+\input{related-work/related-work}
+
+\chapter{Time-travelling State Machines}
+\input{proposed-concept/proposed-concept}
+
+\chapter{Evaluation}
+\input{evaluation/evaluation}
+
+\chapter{Conclusion}
+\input{conclusion/conclusion}
+
+% \chapter{Cool Stuff}
+% \input{others/cool-stuff}
+
+% \chapter{Meetings}
+% \input{others/meetings.tex}
+
+\backmatter
+
+% Use an optional list of figures.
+\listoffigures % Starred version, i.e., \listoffigures*, removes the toc entry.
+
+% Use an optional list of tables.
+\cleardoublepage % Start list of tables on the next empty right hand page.
+\listoftables % Starred version, i.e., \listoftables*, removes the toc entry.
+
+% Use an optional list of alogrithms.
+\listofalgorithms
+\addcontentsline{toc}{chapter}{List of Algorithms}
+
+% Use an optional list of code listings
+\cleardoublepage % Start list of tables on the next empty right hand page.
+\lstlistoflistings
+
+% Add an index.
+\printindex
+
+% Add a glossary.
+\printglossaries
+
+% Add a bibliography.
+\bibliographystyle{alpha}
+\bibliography{thesis, introduction/introduction, background/background, related-work/related-work, proposed-concept/proposed-concept, evaluation/evaluation, conclusion/conclusion}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

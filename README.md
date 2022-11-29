@@ -1,4 +1,5 @@
 # Time-travelling State Machines for Verifiable BPM
+[![CI](https://github.com/danielkleebinder/master-thesis/actions/workflows/main.yml/badge.svg)](https://github.com/danielkleebinder/master-thesis/actions/workflows/main.yml)
 
 ## Abstract
 Inter-organizational business process management often relies on third parties to establish

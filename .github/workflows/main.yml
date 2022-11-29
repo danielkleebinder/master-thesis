@@ -32,3 +32,8 @@ jobs:
         with:
           run: |
             latexmk -gg -bibtex -pdf -pdflatex="pdflatex -interaction=nonstopmode" thesis.tex
+      - name: Archive thesis
+        uses: actions/upload-artifact@v3
+        with:
+          name: thesis
+          path: thesis.pdf
